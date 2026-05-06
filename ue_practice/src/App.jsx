@@ -1,10 +1,9 @@
-import SearchUSers from "./datePicker";
+import DisplayTeam from "./display_team";
 function App() {
   return (
     <>
-      <h1>ESPN</h1>
       <div className="container">
-        <SearchUSers></SearchUSers>
+        <DisplayTeam></DisplayTeam>
       </div>
     </>
   );
