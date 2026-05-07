@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import Competition from "./Competition";
 
 function DisplayTeam() {
   const link =
@@ -60,7 +61,6 @@ function DisplayTeam() {
     <div className="container py-4">
       <h2 className="text-center mb-4 text-light">MLS Scores</h2>
 
-      {/* Date Picker */}
       <div className="d-flex justify-content-center mb-4">
         <input
           type="date"
@@ -69,61 +69,9 @@ function DisplayTeam() {
         />
       </div>
 
-      {/* Games Grid */}
       <div className="row">
         {results.map((game, index) => (
-          <div key={index} className="col-md-6 col-lg-4 mb-4">
-            <div className="card shadow-lg h-100 bg-dark text-light">
-              <div className="card-body text-center">
-                <h5 className="card-title">{game.event}</h5>
-
-                <div className="d-flex justify-content-around align-items-center my-3">
-                  {/* Team 1 */}
-                  <div>
-                    <img
-                      src={game.team1Logo}
-                      alt={game.team1}
-                      style={{ width: 70 }}
-                    />
-                    <p
-                      className={`mb-0 ${
-                        game.winner === game.team1 ? "text-success fw-bold" : ""
-                      }`}
-                    >
-                      {game.team1}
-                    </p>
-                    <strong>{game.team1Score}</strong>
-                  </div>
-
-                  <span className="fs-4 fw-bold">VS</span>
-
-                  {/* Team 2 */}
-                  <div>
-                    <img
-                      src={game.team2Logo}
-                      alt={game.team2}
-                      style={{ width: 70 }}
-                    />
-                    <p
-                      className={`mb-0 ${
-                        game.winner === game.team2 ? "text-success fw-bold" : ""
-                      }`}
-                    >
-                      {game.team2}
-                    </p>
-                    <strong>{game.team2Score}</strong>
-                  </div>
-                </div>
-
-                {/* Winner */}
-                <div className="mt-3">
-                  <span className="badge bg-success">
-                    {game.winner === "Draw" ? "Draw" : `Winner: ${game.winner}`}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Competition key={index} game={game} />
         ))}
       </div>
     </div>
