@@ -58,7 +58,7 @@ function DisplayTeam() {
 
   return (
     <div className="container py-4">
-      <h2 className="text-center mb-4 text-light">MLS Scores</h2>
+      <h2 className="main_header text-center mb-4">MLS Scores</h2>
 
       <div className="d-flex justify-content-center mb-4">
         <input
