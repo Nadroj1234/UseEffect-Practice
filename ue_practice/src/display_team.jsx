@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import TeamInfo from "./TeamInfo";
 
 function DisplayTeam() {
   const link =
@@ -118,9 +119,15 @@ function Team({ name, logo, score, isWinner }) {
     <div>
       <img src={logo} alt={name} style={{ width: 70 }} />
 
-      <p className={`mb-0 ${isWinner ? "text-success fw-bold" : ""}`}>{name}</p>
+      <Link className={`mb-0 ${isWinner ? "text-success fw-bold" : ""}`}>
+        {name}
+      </Link>
 
       <strong>{score}</strong>
+
+      <Routes>
+        <Route path="/TeamInfo" element={<TeamInfo />}></Route>
+      </Routes>
     </div>
   );
 }
