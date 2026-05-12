@@ -1,3 +1,5 @@
+import { Routes, Route, Link } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
@@ -119,15 +121,14 @@ function Team({ name, logo, score, isWinner }) {
     <div>
       <img src={logo} alt={name} style={{ width: 70 }} />
 
-      <Link className={`mb-0 ${isWinner ? "text-success fw-bold" : ""}`}>
+      <p
+        className={`mb-0 ${isWinner ? "text-success fw-bold" : ""}`}
+        to="/TeamInfo"
+      >
         {name}
-      </Link>
+      </p>
 
       <strong>{score}</strong>
-
-      <Routes>
-        <Route path="/TeamInfo" element={<TeamInfo />}></Route>
-      </Routes>
     </div>
   );
 }
